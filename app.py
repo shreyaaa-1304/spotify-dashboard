@@ -168,7 +168,7 @@ html, body, [class*="css"] {
     border-radius: 50%;
     width: 46px; height: 46px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
+    font-size: 32px;
     flex-shrink: 0;
 }
 .dash-title { color: #ffffff; font-size: 22px; font-weight: 700; margin: 0; }
