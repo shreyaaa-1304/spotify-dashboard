@@ -8,6 +8,10 @@ from sklearn.cluster import KMeans
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, r2_score
+import plotly.express as px
+
+fig = px.imshow(summary_stats, text_auto=True)
+st.plotly_chart(fig)
 
 # Set page configuration
 st.set_page_config(
