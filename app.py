@@ -38,7 +38,7 @@ html, body, [class*="css"] {
 [data-testid="stSidebar"] .stSlider label { color: #a0a0a0 !important; font-size: 12px !important; }
 
 /* ---------- main content ---------- */
-[data-testid="stMainBlockContainer"] { padding-top: 1.5rem; padding-bottom: 2rem; }
+[data-testid="stMainBlockContainer"] { padding-top: 6rem; padding-bottom: 2rem; }
 
 /* ---------- KPI cards ---------- */
 .kpi-card {
