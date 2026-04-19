@@ -8,7 +8,6 @@ from sklearn.cluster import KMeans
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, r2_score
-import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Set page configuration
