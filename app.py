@@ -361,9 +361,9 @@ st.markdown("<br>", unsafe_allow_html=True)
 # ── Tabs ───────────────────────────────────────────────────────────────────────
 tab_ov, tab_box, tab_reg, tab_clus, tab_detail = st.tabs([
     "📊  Overview",
-    "📦  Exp 1 · Box Plot",
-    "📈  Exp 2 · Regression",
-    "🎯  Exp 4 · Clustering",
+    "📦  · Box Plot",
+    "📈  · Regression",
+    "🎯  · Clustering",
     "🔍  Analytics",
 ])
 
@@ -471,7 +471,7 @@ with tab_ov:
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_box:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("<div class='exp-badge'>EXPERIMENT 1 · CO1</div>", unsafe_allow_html=True)
+    st.markdown("<div class='exp-badge'>1 · CO1</div>", unsafe_allow_html=True)
     st.markdown("""
     <p class='section-header'>Box Plot Analysis — Audio Feature Distributions</p>
     <p class='section-sub'>Compare the spread and central tendency of audio features between hit and non-hit songs.</p>
@@ -580,7 +580,7 @@ with tab_box:
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_reg:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("<div class='exp-badge'>EXPERIMENT 2 · CO2</div>", unsafe_allow_html=True)
+    st.markdown("<div class='exp-badge'>2 · CO2</div>", unsafe_allow_html=True)
     st.markdown("""
     <p class='section-header'>Linear Regression — Predicting Stream Count</p>
     <p class='section-sub'>Predict song popularity using audio features via Ordinary Least Squares regression.</p>
@@ -714,7 +714,7 @@ with tab_reg:
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_clus:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("<div class='exp-badge'>EXPERIMENT 4 · CO3</div>", unsafe_allow_html=True)
+    st.markdown("<div class='exp-badge'>3 · CO3</div>", unsafe_allow_html=True)
     st.markdown("""
     <p class='section-header'>K-Means Clustering — Song Grouping by Audio Profile</p>
     <p class='section-sub'>Unsupervised grouping of songs using standardised audio features.</p>
@@ -816,32 +816,7 @@ with tab_clus:
                          use_container_width=True)
             st.markdown("</div>", unsafe_allow_html=True)
 
-        # Radar chart
-        st.markdown("<div class='chart-card'>", unsafe_allow_html=True)
-        st.markdown("<p class='section-header'>Radar · Average Profile per Cluster</p>", unsafe_allow_html=True)
-        rad_cols  = PCT_COLS[:6]
-        rad_names = [c.replace("_%","").replace("_"," ").title() for c in rad_cols]
-        fig_rad   = go.Figure()
-        for i in range(n_k):
-            vals = clus_df[clus_df["cluster"]==i][rad_cols].mean().tolist()
-            vals += [vals[0]]
-            fig_rad.add_trace(go.Scatterpolar(
-                r=vals, theta=rad_names+[rad_names[0]],
-                name=f"Cluster {i}",
-                line=dict(color=CHART_COLORS[i%len(CHART_COLORS)], width=2),
-                fill="toself",
-                fillcolor=CHART_COLORS[i%len(CHART_COLORS)].replace("ff","15") if "#" in CHART_COLORS[i%len(CHART_COLORS)] else "rgba(29,185,84,0.1)",
-            ))
-        fig_rad.update_layout(
-            **base_layout(height=320),
-            polar=dict(
-                bgcolor=PLOT_BG,
-                radialaxis=dict(visible=True, range=[0,100], tickfont=dict(color="#555",size=9), gridcolor="#1e1e1e"),
-                angularaxis=dict(tickfont=dict(color="#a0a0a0",size=11), gridcolor="#1e1e1e"),
-            ),
-        )
-        st.plotly_chart(fig_rad, use_container_width=True, config={"displayModeBar": False})
-        st.markdown("</div>", unsafe_allow_html=True)
+
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TAB 5 – ANALYTICS
@@ -967,6 +942,5 @@ st.markdown("""
 <hr style='border:none;border-top:1px solid #1a1a1a;margin:32px 0 16px'>
 <div style='text-align:center;color:#333;font-size:12px;padding-bottom:12px'>
     🎵 &nbsp; Spotify Music Data Analysis &amp; Hit Song Prediction &nbsp;·&nbsp;
-    Data Analytics Course · Experiments 1–4 (CO1–CO3)
 </div>
 """, unsafe_allow_html=True)
