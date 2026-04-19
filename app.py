@@ -9,9 +9,10 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, r2_score
 import plotly.express as px
+summary_stats = df[["danceability_%","energy_%","valence_%","streams"]].describe()
 
 fig = px.imshow(summary_stats, text_auto=True)
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
 
 # Set page configuration
 st.set_page_config(
