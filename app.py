@@ -300,7 +300,7 @@ with st.sidebar:
 
     st.markdown("<hr style='border:none;border-top:1px solid #1f1f1f;margin:20px 0'>",
                 unsafe_allow_html=True)
-    st.markdown("<div style='color:#444;font-size:11px;text-align:center'>Data Analytics Course<br>Experiments 1–4</div>",
+    st.markdown("<div style='color:#444;font-size:11px;text-align:center'>Data Analytics Course<br></div>",
                 unsafe_allow_html=True)
 
 # ── Filter data ────────────────────────────────────────────────────────────────
